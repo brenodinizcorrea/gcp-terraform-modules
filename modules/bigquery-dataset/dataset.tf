@@ -1,5 +1,5 @@
 resource "google_bigquery_dataset" "dataset" {
-  dataset_id                  = "test_dataset"  
-  location                    = "us-central1"
-  project                     = "personal-finance-445622"
+  project    = var.project_id
+  dataset_id = var.dataset_id
+  location   = var.location 
 }
