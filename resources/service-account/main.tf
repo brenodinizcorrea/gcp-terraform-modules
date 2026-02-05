@@ -1,6 +1,6 @@
 resource "google_service_account" "this" {
   project      = var.project_name
-  account_id   = "${var.project_name}-${var.context}-${var.name}-sa"
+  account_id   = "${var.project_alias}-${var.context}-${var.name}-sa"
   display_name = var.sa_display_name
   description  = var.sa_description
 }

@@ -3,6 +3,11 @@ variable "project_name" {
   type        = string
 }
 
+variable "project_alias" {
+  description = "Project Name"
+  type        = string
+}
+
 variable "context" {
   description = "Service Account Context"
   type        = string

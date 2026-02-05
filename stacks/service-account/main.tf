@@ -1,6 +1,7 @@
 module "generic_sa" {
   source          = "../../resources/service-account"
   project_name    = var.project_name
+  project_alias   = var.project_alias
   context         = var.context
   name            = var.name
   sa_display_name = var.sa_display_name
