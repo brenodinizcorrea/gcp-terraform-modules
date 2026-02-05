@@ -1,6 +1,6 @@
 module "generic_sa" {
   source          = "../../resources/service-account"
-  project_name    = var.project_name
+  project_id      = var.project_id
   project_alias   = var.project_alias
   context         = var.context
   name            = var.name
@@ -11,7 +11,7 @@ module "generic_sa" {
 resource "google_project_iam_member" "this" {
   for_each = toset(var.roles)
 
-  project = var.project_name
+  project = var.project_id
   role    = each.value
   member  = "serviceAccount:${module.generic_sa.service_account_email}"
 }
@@ -23,7 +23,7 @@ resource "google_service_account_key" "this" {
 }
 
 resource "google_secret_manager_secret" "this" {
-  secret_id = "${var.project_name}-${var.context}-${var.name}-key"
+  secret_id = "${var.project_alias}-${var.context}-${var.name}-key"
   replication {
     auto {}
   }
