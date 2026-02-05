@@ -19,7 +19,7 @@ resource "google_project_iam_member" "this" {
 resource "google_service_account_key" "this" {
   service_account_id = module.generic_sa.service_account_email
 
-  depends_on = [generic_sa.this]
+  depends_on = [module.generic_sa.this]
 }
 
 resource "google_secret_manager_secret" "this" {
@@ -33,5 +33,5 @@ resource "google_secret_manager_secret_version" "this" {
   secret      = google_secret_manager_secret.this.id
   secret_data = google_service_account_key.this.private_key
 
-  depends_on = [google_secret_manager_secret.this]
+  depends_on = [module.google_secret_manager_secret.this]
 }
