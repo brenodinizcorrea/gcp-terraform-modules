@@ -18,3 +18,13 @@ variable "roles" {
   type        = list(string)
   default     = []
 }
+
+variable "sa_display_name" {
+  description = "Service Account Display Name"
+  type        = string
+}
+
+variable "sa_description" {
+  description = "Service Account Description"
+  type        = string
+}
