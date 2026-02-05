@@ -33,5 +33,5 @@ resource "google_secret_manager_secret_version" "this" {
   secret      = google_secret_manager_secret.this.id
   secret_data = google_service_account_key.this.private_key
 
-  depends_on = [module.google_secret_manager_secret.this]
+  depends_on = [google_secret_manager_secret.this]
 }
